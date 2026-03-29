@@ -36,7 +36,7 @@ export default function Home() {
   const [filterCategory, setFilterCategory] = useState<PrayerCategory | "semua">("semua");
   const [showFilters, setShowFilters] = useState(false);
   const [toast, setToast] = useState({ message: "", visible: false });
-  const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   const showToast = (message: string) => {
     setToast({ message, visible: true });
@@ -44,7 +44,6 @@ export default function Home() {
   };
 
   const loadData = useCallback(async () => {
-    setLoading(true);
     try {
       const [prayersData, statsData] = await Promise.all([
         fetchPrayers({ tab: activeTab, category: filterCategory, search: searchQuery }),
@@ -53,7 +52,7 @@ export default function Home() {
       setPrayers(prayersData);
       setStats(statsData);
     } finally {
-      setLoading(false);
+      setInitialLoad(false);
     }
   }, [activeTab, filterCategory, searchQuery]);
 
@@ -122,13 +121,14 @@ export default function Home() {
   };
 
   const handleShare = async (prayer: PrayerData) => {
-    const text = `🙏 Permohonan Doa\n\nDari: ${prayer.isAnonymous ? "Hamba Tuhan" : prayer.name}\nKategori: ${CATEGORIES.find((c) => c.value === prayer.category)?.label || prayer.category}\n\n"${prayer.content}"\n\n${prayer.scriptureVerse ? `📖 ${prayer.scriptureVerse}\n\n` : ""}Mari mendoakan bersama di PermohonanDoa.com`;
+    const url = `${window.location.origin}/doa/${prayer.id}`;
+    const text = `🙏 Permohonan Doa dari ${prayer.isAnonymous ? "Hamba Tuhan" : prayer.name}\n\n"${prayer.content.substring(0, 200)}${prayer.content.length > 200 ? "..." : ""}"\n\nMari mendoakan bersama:`;
 
     if (navigator.share) {
-      try { await navigator.share({ title: "Permohonan Doa", text }); } catch { /* cancelled */ }
+      try { await navigator.share({ title: "Permohonan Doa", text, url }); } catch { /* cancelled */ }
     } else {
-      await navigator.clipboard.writeText(text);
-      showToast("Berhasil disalin ke clipboard!");
+      await navigator.clipboard.writeText(`${text}\n${url}`);
+      showToast("Link berhasil disalin!");
     }
   };
 
@@ -215,7 +215,7 @@ export default function Home() {
         </div>
 
         {/* Prayer list */}
-        {loading ? (
+        {initialLoad ? (
           <div className="space-y-4">
             {[...Array(3)].map((_, i) => (
               <SkeletonCard key={i} />

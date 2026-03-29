@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Plus, Flame, Heart, CheckCircle2 } from "lucide-react";
+import { BookOpen, Plus, Flame, Heart, CheckCircle2, LogIn, LogOut, User } from "lucide-react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useState } from "react";
+import Image from "next/image";
 
 interface HeaderProps {
   activeTab: "semua" | "permohonan" | "dijawab";
@@ -11,6 +14,9 @@ interface HeaderProps {
 }
 
 export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: HeaderProps) {
+  const { data: session, status } = useSession();
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
   return (
     <header className="glass sticky top-0 z-50 border-b border-stone-200/60">
       <div className="mx-auto max-w-2xl px-4">
@@ -26,15 +32,71 @@ export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: H
             </div>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onNewPrayer}
-            className="flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-stone-900/20 transition-colors hover:bg-stone-800"
-          >
-            <Plus className="h-4 w-4" />
-            <span className="hidden sm:inline">Tulis Doa</span>
-          </motion.button>
+          <div className="flex items-center gap-2">
+            {/* Auth button */}
+            {status === "loading" ? (
+              <div className="h-9 w-9 rounded-full bg-stone-100 animate-pulse" />
+            ) : session?.user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full ring-2 ring-stone-200 hover:ring-amber-300 transition-all"
+                >
+                  {session.user.image ? (
+                    <Image
+                      src={session.user.image}
+                      alt={session.user.name || ""}
+                      width={36}
+                      height={36}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <User className="h-4 w-4 text-stone-500" />
+                  )}
+                </button>
+                {showUserMenu && (
+                  <>
+                    <div className="fixed inset-0 z-40" onClick={() => setShowUserMenu(false)} />
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      className="absolute right-0 top-12 z-50 w-56 rounded-xl bg-white p-2 shadow-xl ring-1 ring-stone-100"
+                    >
+                      <div className="px-3 py-2 border-b border-stone-100 mb-1">
+                        <p className="text-sm font-semibold text-stone-800 truncate">{session.user.name}</p>
+                        <p className="text-xs text-stone-400 truncate">{session.user.email}</p>
+                      </div>
+                      <button
+                        onClick={() => { signOut(); setShowUserMenu(false); }}
+                        className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Keluar
+                      </button>
+                    </motion.div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={() => signIn()}
+                className="flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-semibold text-stone-600 ring-1 ring-stone-200 hover:ring-stone-300 transition-all"
+              >
+                <LogIn className="h-3.5 w-3.5" />
+                Masuk
+              </button>
+            )}
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onNewPrayer}
+              className="flex items-center gap-2 rounded-xl bg-stone-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-stone-900/20 transition-colors hover:bg-stone-800"
+            >
+              <Plus className="h-4 w-4" />
+              <span className="hidden sm:inline">Tulis Doa</span>
+            </motion.button>
+          </div>
         </div>
 
         {/* Stats */}
@@ -58,7 +120,7 @@ export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: H
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-1 rounded-xl bg-stone-100/80 p-1 mb-0 -mx-0">
+        <div className="flex gap-1 rounded-xl bg-stone-100/80 p-1">
           {[
             { key: "semua" as const, label: "Semua Doa" },
             { key: "permohonan" as const, label: "Permohonan" },

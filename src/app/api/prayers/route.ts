@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { prayerRequests, prayerUpdates } from "@/db/schema";
 import { desc, eq, ilike, or, sql, and } from "drizzle-orm";
+import { auth } from "@/auth";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -50,6 +51,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const session = await auth();
   const body = await request.json();
   const { name, category, content, isAnonymous, isUrgent, scriptureVerse } = body;
 
@@ -57,10 +59,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Permohonan doa tidak boleh kosong" }, { status: 400 });
   }
 
+  const userName = isAnonymous
+    ? "Hamba Tuhan"
+    : (name?.trim() || session?.user?.name || "Hamba Tuhan");
+
   const [prayer] = await db
     .insert(prayerRequests)
     .values({
-      name: isAnonymous ? "Hamba Tuhan" : (name?.trim() || "Hamba Tuhan"),
+      userId: session?.user?.id || null,
+      name: userName,
       category: category || "lainnya",
       content: content.trim(),
       isAnonymous: !!isAnonymous,
