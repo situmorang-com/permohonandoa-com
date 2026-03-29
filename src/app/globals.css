@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf7f2;
+  min-height: 100vh;
+}
+
+/* Warm skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0ebe4 25%, #f7f2ec 50%, #f0ebe4 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* Glass morphism */
+.glass {
+  backdrop-filter: blur(20px) saturate(1.2);
+  background: rgba(250, 247, 242, 0.85);
+}
+
+/* Prayer glow effect */
+@keyframes pray-glow {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.8); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.pray-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(202, 138, 4, 0.4), transparent 70%);
+  animation: pray-glow 0.8s ease-out forwards;
+}
+
+/* Answered celebration */
+@keyframes celebrate {
+  0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-celebrate {
+  animation: celebrate 0.5s ease-out forwards;
+}
+
+/* Urgent pulse */
+@keyframes urgent-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-urgent {
+  animation: urgent-pulse 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d4c5b0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #b8a48e; }
