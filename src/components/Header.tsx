@@ -28,8 +28,8 @@ export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: H
               <BookOpen className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="font-serif text-xl text-slate-900 dark:text-white">PermohonanDoa</h1>
-              <p className="text-[11px] text-slate-400 dark:text-slate-500 tracking-wide">Berdoa bersama, berkat berlimpah</p>
+              <h1 className="font-serif text-xl text-slate-900 dark:text-white">permohonandoa.com</h1>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 tracking-wide">Berdoa bersama</p>
             </div>
           </div>
 

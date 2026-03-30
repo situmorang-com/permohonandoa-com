@@ -40,8 +40,8 @@ export default function Sidebar() {
           <BookOpen className="h-5 w-5" />
         </div>
         <div>
-          <h1 className="font-serif text-lg text-slate-900 dark:text-white">PermohonanDoa</h1>
-          <p className="text-[10px] text-slate-400 dark:text-slate-500 tracking-wide">Berdoa bersama</p>
+          <h1 className="font-serif text-lg text-slate-900 dark:text-white">permohonandoa.com</h1>
+          <p className="text-[10px] text-slate-400 dark:text-slate-500 tracking-wide">Berdoa bersama, berkat berlimpah</p>
         </div>
       </div>
 
