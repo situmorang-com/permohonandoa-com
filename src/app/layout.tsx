@@ -28,7 +28,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans text-stone-800 dark:text-stone-200 antialiased">
+      <body className="font-sans text-slate-800 dark:text-slate-200 antialiased">
         <SessionProvider>
           <Sidebar />
           <div className="md:pl-64">

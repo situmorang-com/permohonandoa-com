@@ -33,23 +33,23 @@ export default function Sidebar() {
   const { data: session } = useSession();
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 z-30 w-64 flex-col border-r border-stone-200/60 dark:border-stone-800 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl">
+    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 z-30 w-64 flex-col border-r border-slate-200/60 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-stone-100 dark:border-stone-800">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 text-white shadow-md shadow-amber-600/20">
+      <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white shadow-lg shadow-indigo-500/25">
           <BookOpen className="h-5 w-5" />
         </div>
         <div>
-          <h1 className="font-serif text-lg text-stone-900 dark:text-stone-100">PermohonanDoa</h1>
-          <p className="text-[10px] text-stone-400 tracking-wide">Berdoa bersama</p>
+          <h1 className="font-serif text-lg text-slate-900 dark:text-white">PermohonanDoa</h1>
+          <p className="text-[10px] text-slate-400 dark:text-slate-500 tracking-wide">Berdoa bersama</p>
         </div>
       </div>
 
       {/* User info */}
       {session?.user && (
-        <div className="px-5 py-4 border-b border-stone-100 dark:border-stone-800">
+        <div className="px-5 py-4 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full ring-2 ring-stone-200 dark:ring-stone-700">
+            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full ring-2 ring-slate-200 dark:ring-slate-700">
               {session.user.image ? (
                 <Image
                   src={session.user.image}
@@ -59,16 +59,16 @@ export default function Sidebar() {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <User className="h-5 w-5 text-stone-400" />
+                <User className="h-5 w-5 text-slate-400" />
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-stone-800 dark:text-stone-200 truncate">
+              <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
                 {session.user.name}
               </p>
               <div className="flex items-center gap-1 mt-0.5">
-                <Flame className="h-3 w-3 text-amber-500" />
-                <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400">0 hari streak</span>
+                <Flame className="h-3 w-3 text-orange-500" />
+                <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400">0 hari streak</span>
               </div>
             </div>
           </div>
@@ -85,14 +85,14 @@ export default function Sidebar() {
               href={item.href}
               className={`relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
                 isActive
-                  ? "bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300"
-                  : "text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 hover:text-stone-800 dark:hover:text-stone-200"
+                  ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300"
+                  : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
               }`}
             >
               {isActive && (
                 <motion.div
                   layoutId="sidebarIndicator"
-                  className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-amber-500"
+                  className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-indigo-500"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -104,8 +104,8 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="flex items-center justify-between border-t border-stone-100 dark:border-stone-800 px-5 py-3">
-        <span className="text-[10px] text-stone-400">v1.0</span>
+      <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 px-5 py-3">
+        <span className="text-[10px] text-slate-400">v1.0</span>
         <DarkModeToggle />
       </div>
     </aside>

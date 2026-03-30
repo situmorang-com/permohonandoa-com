@@ -74,17 +74,17 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="w-full max-w-md rounded-2xl bg-white dark:bg-stone-900 shadow-xl ring-1 ring-stone-100 dark:ring-stone-800 overflow-hidden"
+            className="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 shadow-xl ring-1 ring-slate-100 dark:ring-slate-800 overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 px-5 py-4">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-amber-500" />
-                <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100">Selamat Datang</h2>
+                <Sparkles className="h-5 w-5 text-indigo-500" />
+                <h2 className="font-serif text-lg text-slate-900 dark:text-slate-100">Selamat Datang</h2>
               </div>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1.5 text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -96,7 +96,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                 <div
                   key={s}
                   className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                    s <= step ? "bg-amber-500" : "bg-stone-200 dark:bg-stone-700"
+                    s <= step ? "bg-indigo-500" : "bg-slate-200 dark:bg-slate-700"
                   }`}
                 />
               ))}
@@ -118,10 +118,10 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   >
                     <div className="flex flex-col items-center text-center pt-4">
                       <div className="mb-4 text-5xl">🙏</div>
-                      <h3 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+                      <h3 className="font-serif text-xl text-slate-900 dark:text-slate-100">
                         Halo, saudaraku!
                       </h3>
-                      <p className="mt-2 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+                      <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                         Mari berkenalan. Siapa nama yang ingin kamu tampilkan di komunitas doa ini?
                       </p>
                       <input
@@ -129,7 +129,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                         placeholder="Nama kamu..."
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="mt-6 w-full rounded-xl border-2 border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-center text-sm text-stone-800 dark:text-stone-200 outline-none transition-all focus:border-amber-400 dark:focus:border-amber-500 placeholder:text-stone-400"
+                        className="mt-6 w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-center text-sm text-slate-800 dark:text-slate-200 outline-none transition-all focus:border-indigo-400 dark:focus:border-indigo-500 placeholder:text-slate-400"
                         autoFocus
                       />
                     </div>
@@ -147,10 +147,10 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 p-5"
                   >
-                    <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 text-center">
+                    <h3 className="font-serif text-lg text-slate-900 dark:text-slate-100 text-center">
                       Kategori doa yang diminati
                     </h3>
-                    <p className="mt-1 text-xs text-stone-400 text-center mb-4">
+                    <p className="mt-1 text-xs text-slate-400 text-center mb-4">
                       Pilih satu atau lebih untuk personalisasi pengalamanmu
                     </p>
                     <div className="grid grid-cols-2 gap-2 max-h-48 overflow-y-auto">
@@ -160,14 +160,14 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                           onClick={() => toggleCategory(cat.value)}
                           className={`flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ring-1 ${
                             selectedCategories.includes(cat.value)
-                              ? "bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 ring-amber-300 dark:ring-amber-700"
-                              : "bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-400 ring-stone-200 dark:ring-stone-700 hover:ring-stone-300"
+                              ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-300 ring-indigo-300 dark:ring-indigo-700"
+                              : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 ring-slate-200 dark:ring-slate-700 hover:ring-slate-300"
                           }`}
                         >
                           <span>{cat.emoji}</span>
                           <span className="truncate">{cat.label}</span>
                           {selectedCategories.includes(cat.value) && (
-                            <Check className="h-3.5 w-3.5 ml-auto shrink-0 text-amber-600 dark:text-amber-400" />
+                            <Check className="h-3.5 w-3.5 ml-auto shrink-0 text-indigo-600 dark:text-indigo-400" />
                           )}
                         </button>
                       ))}
@@ -188,10 +188,10 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   >
                     <div className="flex flex-col items-center text-center pt-4">
                       <div className="mb-4 text-5xl">📍</div>
-                      <h3 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+                      <h3 className="font-serif text-xl text-slate-900 dark:text-slate-100">
                         Dari mana asalmu?
                       </h3>
-                      <p className="mt-2 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+                      <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                         Opsional. Ini membantu kami menghubungkanmu dengan komunitas doa terdekat.
                       </p>
                       <input
@@ -199,9 +199,9 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                         placeholder="Contoh: Jakarta, Surabaya..."
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
-                        className="mt-6 w-full rounded-xl border-2 border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-3 text-center text-sm text-stone-800 dark:text-stone-200 outline-none transition-all focus:border-amber-400 dark:focus:border-amber-500 placeholder:text-stone-400"
+                        className="mt-6 w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-center text-sm text-slate-800 dark:text-slate-200 outline-none transition-all focus:border-indigo-400 dark:focus:border-indigo-500 placeholder:text-slate-400"
                       />
-                      <p className="mt-2 text-xs text-stone-400">
+                      <p className="mt-2 text-xs text-slate-400">
                         Kamu bisa melewati langkah ini
                       </p>
                     </div>
@@ -211,11 +211,11 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between border-t border-stone-100 dark:border-stone-800 px-5 py-4">
+            <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 px-5 py-4">
               {step > 1 ? (
                 <button
                   onClick={goBack}
-                  className="flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                  className="flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Kembali
@@ -229,7 +229,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   whileTap={{ scale: 0.98 }}
                   onClick={goNext}
                   disabled={step === 1 && !name.trim()}
-                  className="flex items-center gap-1.5 rounded-xl bg-stone-900 dark:bg-stone-100 px-5 py-2.5 text-sm font-semibold text-white dark:text-stone-900 disabled:opacity-40 hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors"
+                  className="flex items-center gap-1.5 rounded-xl bg-indigo-600 dark:bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
                 >
                   Lanjut
                   <ArrowRight className="h-4 w-4" />
@@ -239,7 +239,7 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
                   disabled={submitting}
-                  className="flex items-center gap-1.5 rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40 hover:bg-amber-700 transition-colors"
+                  className="flex items-center gap-1.5 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40 hover:bg-indigo-700 transition-colors"
                 >
                   {submitting ? "Menyimpan..." : "Mulai Berdoa"}
                   <Sparkles className="h-4 w-4" />

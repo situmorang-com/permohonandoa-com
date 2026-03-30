@@ -28,7 +28,7 @@ export default function UpdateModal({ isOpen, onClose, onSubmit }: UpdateModalPr
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -36,19 +36,19 @@ export default function UpdateModal({ isOpen, onClose, onSubmit }: UpdateModalPr
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
             transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            className="relative w-full max-w-lg rounded-t-3xl sm:rounded-2xl bg-white shadow-2xl sm:m-4"
+            className="relative w-full max-w-lg rounded-t-3xl sm:rounded-2xl bg-white dark:bg-slate-800 shadow-2xl sm:m-4"
           >
-            <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-stone-200 sm:hidden" />
-            <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-stone-100">
+            <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-slate-200 dark:bg-slate-700 sm:hidden" />
+            <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-slate-100 dark:border-slate-700">
               <div className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-stone-500" />
+                <MessageCircle className="h-5 w-5 text-slate-500 dark:text-slate-400" />
                 <div>
-                  <h2 className="text-lg font-semibold text-stone-900">Tambah Update</h2>
-                  <p className="text-xs text-stone-400">Bagikan perkembangan permohonan doamu</p>
+                  <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Tambah Update</h2>
+                  <p className="text-xs text-slate-400">Bagikan perkembangan permohonan doamu</p>
                 </div>
               </div>
-              <button onClick={onClose} className="rounded-lg p-2 hover:bg-stone-50 transition-colors">
-                <X className="h-5 w-5 text-stone-400" />
+              <button onClick={onClose} className="rounded-lg p-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                <X className="h-5 w-5 text-slate-400" />
               </button>
             </div>
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -57,7 +57,7 @@ export default function UpdateModal({ isOpen, onClose, onSubmit }: UpdateModalPr
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 rows={3}
-                className="w-full rounded-xl border-2 border-stone-200 bg-stone-50/50 px-4 py-3 text-sm leading-relaxed outline-none transition-colors focus:border-amber-400 focus:bg-white placeholder:text-stone-400 resize-none"
+                className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:text-slate-200 outline-none transition-colors focus:border-indigo-400 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-800 placeholder:text-slate-400 resize-none"
                 required
               />
               <motion.button
@@ -65,7 +65,7 @@ export default function UpdateModal({ isOpen, onClose, onSubmit }: UpdateModalPr
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={!content.trim()}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-stone-900/20 hover:bg-stone-800 disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700 disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <Send className="h-4 w-4" />
                 Kirim Update

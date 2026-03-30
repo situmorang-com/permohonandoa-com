@@ -6,7 +6,7 @@ import { BookOpen } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#faf7f2] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-slate-900 px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -15,15 +15,15 @@ export default function LoginPage() {
       >
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-white shadow-lg shadow-amber-600/20">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white shadow-lg shadow-indigo-600/20">
             <BookOpen className="h-8 w-8" />
           </div>
-          <h1 className="font-serif text-3xl text-stone-900">PermohonanDoa</h1>
-          <p className="mt-2 text-sm text-stone-400">Masuk untuk membagikan permohonan doamu</p>
+          <h1 className="font-serif text-3xl text-slate-900 dark:text-slate-100">PermohonanDoa</h1>
+          <p className="mt-2 text-sm text-slate-400">Masuk untuk membagikan permohonan doamu</p>
         </div>
 
         {/* Login card */}
-        <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-100">
+        <div className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-sm ring-1 ring-slate-100 dark:ring-slate-700">
           <div className="space-y-3">
             {/* Facebook */}
             <button
@@ -39,7 +39,7 @@ export default function LoginPage() {
             {/* Google */}
             <button
               onClick={() => signIn("google", { callbackUrl: "/" })}
-              className="flex w-full items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-stone-700 shadow-md ring-1 ring-stone-200 transition-all hover:bg-stone-50 hover:shadow-lg active:scale-[0.98]"
+              className="flex w-full items-center gap-3 rounded-xl bg-white dark:bg-slate-700 px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-md ring-1 ring-slate-200 dark:ring-slate-600 transition-all hover:bg-slate-50 dark:hover:bg-slate-600 hover:shadow-lg active:scale-[0.98]"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -52,7 +52,7 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-5 text-center">
-            <p className="text-xs text-stone-400 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed">
               Dengan masuk, kamu setuju dengan ketentuan layanan kami.
               <br />
               Data pribadimu dilindungi dan tidak akan dibagikan.
@@ -64,7 +64,7 @@ export default function LoginPage() {
         <div className="mt-4 text-center">
           <a
             href="/"
-            className="text-sm font-medium text-stone-400 hover:text-stone-600 transition-colors"
+            className="text-sm font-medium text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
           >
             Lanjutkan tanpa masuk →
           </a>

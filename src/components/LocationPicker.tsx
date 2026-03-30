@@ -54,20 +54,20 @@ export default function LocationPicker({ onLocationChange, defaultValue = "" }: 
   return (
     <div className="space-y-2">
       <div className="relative">
-        <MapPin className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+        <MapPin className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         <input
           type="text"
           placeholder="Kota atau daerah..."
           value={location}
           onChange={(e) => handleInputChange(e.target.value)}
-          className="w-full rounded-xl border-2 border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 py-2.5 pl-10 pr-4 text-sm text-stone-800 dark:text-stone-200 outline-none transition-all focus:border-amber-400 dark:focus:border-amber-500 placeholder:text-stone-400"
+          className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-2.5 pl-10 pr-4 text-sm text-slate-800 dark:text-slate-200 outline-none transition-all focus:border-indigo-400 dark:focus:border-indigo-500 placeholder:text-slate-400"
         />
       </div>
       <button
         type="button"
         onClick={handleUseMyLocation}
         disabled={loading}
-        className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-colors disabled:opacity-50"
+        className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium text-indigo-700 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors disabled:opacity-50"
       >
         {loading ? (
           <Loader2 className="h-3.5 w-3.5 animate-spin" />

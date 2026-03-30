@@ -98,7 +98,7 @@ export default function AudioRecorder({ onRecorded }: AudioRecorderProps) {
               className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${
                 recording
                   ? "bg-red-500 text-white shadow-lg shadow-red-500/30"
-                  : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700"
+                  : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
               }`}
             >
               {recording ? <Square className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
@@ -115,7 +115,7 @@ export default function AudioRecorder({ onRecorded }: AudioRecorderProps) {
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
-                <span className="text-sm font-mono text-stone-600 dark:text-stone-300">
+                <span className="text-sm font-mono text-slate-600 dark:text-slate-300">
                   {formatTime(duration)}
                 </span>
               </motion.div>
@@ -127,20 +127,20 @@ export default function AudioRecorder({ onRecorded }: AudioRecorderProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 rounded-xl bg-stone-50 dark:bg-stone-800 px-3 py-2 ring-1 ring-stone-200 dark:ring-stone-700"
+            className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800 px-3 py-2 ring-1 ring-slate-200 dark:ring-slate-700"
           >
             <button
               onClick={togglePlayback}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 hover:bg-amber-200 dark:hover:bg-amber-900/50 transition-colors"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors"
             >
               {playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 ml-0.5" />}
             </button>
-            <span className="text-xs font-mono text-stone-500 dark:text-stone-400">
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
               {formatTime(duration)}
             </span>
             <button
               onClick={handleDelete}
-              className="rounded-lg p-1.5 text-stone-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+              className="rounded-lg p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
             >
               <Trash2 className="h-3.5 w-3.5" />
             </button>

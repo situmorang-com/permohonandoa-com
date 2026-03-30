@@ -70,17 +70,17 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-2xl bg-white dark:bg-stone-900 shadow-xl ring-1 ring-stone-100 dark:ring-stone-800"
+            className="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 shadow-xl ring-1 ring-slate-100 dark:ring-slate-800"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 px-5 py-4">
               <div className="flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5 text-red-500" />
-                <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100">Laporkan Konten</h2>
+                <h2 className="font-serif text-lg text-slate-900 dark:text-slate-100">Laporkan Konten</h2>
               </div>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1.5 text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -89,10 +89,10 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
             <div className="p-5">
               {!session?.user ? (
                 <div className="flex flex-col items-center gap-3 py-6">
-                  <LogIn className="h-8 w-8 text-stone-300" />
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                  <LogIn className="h-8 w-8 text-slate-300 dark:text-slate-600" />
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
                     Silakan{" "}
-                    <a href="/masuk" className="font-semibold text-amber-700 dark:text-amber-400 hover:underline">
+                    <a href="/masuk" className="font-semibold text-indigo-700 dark:text-indigo-400 hover:underline">
                       masuk
                     </a>{" "}
                     untuk melaporkan konten.
@@ -107,14 +107,14 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
                     <AlertTriangle className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                  <p className="text-sm font-semibold text-stone-700 dark:text-stone-300">Laporan terkirim</p>
-                  <p className="text-xs text-stone-400 text-center">
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Laporan terkirim</p>
+                  <p className="text-xs text-slate-400 text-center">
                     Terima kasih. Tim kami akan meninjau laporan Anda.
                   </p>
                 </motion.div>
               ) : (
                 <>
-                  <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                     Pilih alasan pelaporan:
                   </p>
 
@@ -124,8 +124,8 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
                         key={r.value}
                         className={`flex items-center gap-3 rounded-xl px-4 py-3 cursor-pointer transition-all ring-1 ${
                           reason === r.value
-                            ? "bg-amber-50 dark:bg-amber-900/20 ring-amber-300 dark:ring-amber-700"
-                            : "bg-white dark:bg-stone-800 ring-stone-200 dark:ring-stone-700 hover:ring-stone-300 dark:hover:ring-stone-600"
+                            ? "bg-indigo-50 dark:bg-indigo-900/20 ring-indigo-300 dark:ring-indigo-700"
+                            : "bg-white dark:bg-slate-800 ring-slate-200 dark:ring-slate-700 hover:ring-slate-300 dark:hover:ring-slate-600"
                         }`}
                       >
                         <input
@@ -134,9 +134,9 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
                           value={r.value}
                           checked={reason === r.value}
                           onChange={() => setReason(r.value)}
-                          className="accent-amber-600"
+                          className="accent-indigo-600"
                         />
-                        <span className="text-sm text-stone-700 dark:text-stone-300">{r.label}</span>
+                        <span className="text-sm text-slate-700 dark:text-slate-300">{r.label}</span>
                       </label>
                     ))}
                   </div>
@@ -146,7 +146,7 @@ export default function ReportModal({ isOpen, onClose, prayerRequestId, commentI
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     rows={3}
-                    className="mt-4 w-full rounded-xl border-2 border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-3.5 py-2.5 text-sm text-stone-800 dark:text-stone-200 outline-none transition-all focus:border-amber-400 dark:focus:border-amber-500 placeholder:text-stone-400 resize-none"
+                    className="mt-4 w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-2.5 text-sm text-slate-800 dark:text-slate-200 outline-none transition-all focus:border-indigo-400 dark:focus:border-indigo-500 placeholder:text-slate-400 resize-none"
                   />
 
                   <motion.button

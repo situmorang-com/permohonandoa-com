@@ -18,7 +18,7 @@ export const CATEGORIES: { value: PrayerCategory; label: string; emoji: string; 
   { value: "pendidikan", label: "Pendidikan", emoji: "📚", color: "bg-violet-100 text-violet-700" },
   { value: "pelayanan", label: "Pelayanan", emoji: "⛪", color: "bg-indigo-100 text-indigo-700" },
   { value: "ucapan-syukur", label: "Ucapan Syukur", emoji: "🙌", color: "bg-yellow-100 text-yellow-700" },
-  { value: "lainnya", label: "Lainnya", emoji: "🙏", color: "bg-stone-100 text-stone-700" },
+  { value: "lainnya", label: "Lainnya", emoji: "🙏", color: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" },
 ];
 
 export const SCRIPTURE_SUGGESTIONS = [

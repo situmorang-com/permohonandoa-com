@@ -18,7 +18,7 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
-      <div className="glass border-t border-stone-200/60 dark:border-stone-800/60 bg-white/90 dark:bg-stone-900/90 px-2 pb-[env(safe-area-inset-bottom)]">
+      <div className="glass border-t border-slate-200/60 dark:border-slate-700/60 bg-white/90 dark:bg-slate-900/90 px-2 pb-[env(safe-area-inset-bottom)]">
         <div className="flex items-center justify-around">
           {NAV_ITEMS.map((item) => {
             const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -28,14 +28,14 @@ export default function BottomNav() {
                 href={item.href}
                 className={`relative flex flex-col items-center gap-0.5 px-3 py-2.5 text-[10px] font-medium transition-colors ${
                   isActive
-                    ? "text-amber-700 dark:text-amber-400"
-                    : "text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300"
+                    ? "text-indigo-600 dark:text-indigo-400"
+                    : "text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="bottomNavIndicator"
-                    className="absolute -top-0.5 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-amber-500"
+                    className="absolute -top-0.5 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-indigo-500"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}

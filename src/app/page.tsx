@@ -136,7 +136,7 @@ export default function Home() {
   const dailyVerse = SCRIPTURE_SUGGESTIONS[new Date().getDay() % SCRIPTURE_SUGGESTIONS.length];
 
   return (
-    <div className="min-h-screen bg-[#faf7f2]">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <Header
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -149,18 +149,18 @@ export default function Home() {
         <div className="mb-5 space-y-3">
           <div className="flex gap-2">
             <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
               <input
                 type="text"
                 placeholder="Cari permohonan doa..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                className="w-full rounded-xl border-2 border-stone-200 bg-white py-2.5 pl-10 pr-4 text-sm outline-none transition-all focus:border-amber-400 placeholder:text-stone-400"
+                className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-2.5 pl-10 pr-4 text-sm text-slate-800 dark:text-slate-200 outline-none transition-all focus:border-indigo-400 dark:focus:border-indigo-500 placeholder:text-slate-400 dark:placeholder:text-slate-500"
               />
               {searchInput && (
                 <button
                   onClick={() => setSearchInput("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 text-stone-400 hover:text-stone-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -170,8 +170,8 @@ export default function Home() {
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center gap-1.5 rounded-xl border-2 px-3.5 py-2.5 text-sm font-medium transition-all ${
                 showFilters || filterCategory !== "semua"
-                  ? "border-amber-300 bg-amber-50 text-amber-800"
-                  : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                  ? "border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                  : "border-slate-200 dark:border-slate-700 bg-white text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600"
               }`}
             >
               <Filter className="h-4 w-4" />
@@ -191,8 +191,8 @@ export default function Home() {
                 onClick={() => setFilterCategory("semua")}
                 className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all ${
                   filterCategory === "semua"
-                    ? "bg-stone-900 text-white"
-                    : "bg-white text-stone-600 ring-1 ring-stone-200 hover:ring-stone-300"
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-slate-300 dark:hover:ring-slate-600"
                 }`}
               >
                 Semua
@@ -203,8 +203,8 @@ export default function Home() {
                   onClick={() => setFilterCategory(cat.value)}
                   className={`rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all ${
                     filterCategory === cat.value
-                      ? "bg-stone-900 text-white"
-                      : "bg-white text-stone-600 ring-1 ring-stone-200 hover:ring-stone-300"
+                      ? "bg-indigo-600 text-white"
+                      : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 ring-1 ring-slate-200 dark:ring-slate-700 hover:ring-slate-300 dark:hover:ring-slate-600"
                   }`}
                 >
                   {cat.emoji} {cat.label}
@@ -247,23 +247,23 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="mt-10 mb-8"
         >
-          <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 px-6 py-5 ring-1 ring-amber-100/60">
+          <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/40 dark:to-violet-950/40 px-6 py-5 ring-1 ring-indigo-100/60 dark:ring-indigo-800/40">
             <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="h-4 w-4 text-amber-600" />
-              <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider">Ayat Hari Ini</span>
+              <BookOpen className="h-4 w-4 text-indigo-500 dark:text-indigo-400" />
+              <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Ayat Hari Ini</span>
             </div>
-            <p className="font-serif text-base italic text-stone-700 leading-relaxed">
+            <p className="font-serif text-base italic text-slate-700 dark:text-slate-300 leading-relaxed">
               &ldquo;{dailyVerse.text}&rdquo;
             </p>
-            <p className="mt-2 text-xs font-bold text-amber-700">— {dailyVerse.verse}</p>
+            <p className="mt-2 text-xs font-bold text-indigo-600 dark:text-indigo-400">— {dailyVerse.verse}</p>
           </div>
         </motion.div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-stone-200/60 bg-white/50 py-8 text-center">
-        <p className="font-serif text-base text-stone-600">PermohonanDoa.com</p>
-        <p className="mt-1 text-xs text-stone-400">
+      <footer className="border-t border-slate-200 dark:border-slate-700/60 bg-white/50 dark:bg-slate-800/50 py-8 text-center">
+        <p className="font-serif text-base text-slate-600 dark:text-slate-300">PermohonanDoa.com</p>
+        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
           Berdoa bersama, berkat berlimpah — Dibuat untuk komunitas Kristen Indonesia
         </p>
       </footer>

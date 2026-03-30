@@ -30,7 +30,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggle}
-      className="rounded-lg p-2 text-stone-500 hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800 transition-colors"
+      className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
       aria-label={dark ? "Aktifkan mode terang" : "Aktifkan mode gelap"}
     >
       <AnimatePresence mode="wait">
