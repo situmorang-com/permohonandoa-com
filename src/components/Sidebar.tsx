@@ -33,7 +33,7 @@ export default function Sidebar() {
   const { data: session } = useSession();
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 z-30 w-64 flex-col border-r border-slate-200/60 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
+    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 z-30 w-64 flex-col bg-white dark:bg-slate-900 shadow-sm">
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-100 dark:border-slate-800">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white shadow-lg shadow-indigo-500/25">

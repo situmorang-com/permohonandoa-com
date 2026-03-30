@@ -144,7 +144,7 @@ export default function Home() {
         stats={stats}
       />
 
-      <main className="mx-auto max-w-2xl px-4 py-5">
+      <main className="mx-auto max-w-3xl px-4 py-5">
         {/* Search & Filter */}
         <div className="mb-5 space-y-3">
           <div className="flex gap-2">

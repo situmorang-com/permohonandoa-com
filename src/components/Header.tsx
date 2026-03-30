@@ -20,10 +20,10 @@ export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: H
 
   return (
     <header className="glass sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60">
-      <div className="mx-auto max-w-2xl px-4">
+      <div className="mx-auto max-w-3xl px-4">
         {/* Top row */}
         <div className="flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 md:hidden">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white shadow-lg shadow-indigo-500/25">
               <BookOpen className="h-5 w-5" />
             </div>
