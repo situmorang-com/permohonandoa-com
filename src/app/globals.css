@@ -70,8 +70,27 @@ body {
   animation: urgent-pulse 2s ease-in-out infinite;
 }
 
+/* Dark mode */
+.dark body {
+  background-color: #1c1917;
+  color: #e7e5e4;
+}
+
+.dark .glass {
+  background: rgba(28, 25, 23, 0.85);
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #292524 25%, #44403c 50%, #292524 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #d4c5b0; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #b8a48e; }
+
+.dark ::-webkit-scrollbar-thumb { background: #57534e; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #78716c; }

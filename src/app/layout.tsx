@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+import Sidebar from "@/components/Sidebar";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,15 +21,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans text-stone-800 antialiased">
-        <SessionProvider>{children}</SessionProvider>
+      <body className="font-sans text-stone-800 dark:text-stone-200 antialiased">
+        <SessionProvider>
+          <Sidebar />
+          <div className="md:pl-64">
+            {children}
+          </div>
+          <BottomNav />
+        </SessionProvider>
       </body>
     </html>
   );
