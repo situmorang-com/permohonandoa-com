@@ -19,7 +19,7 @@ export default function Header({ activeTab, onTabChange, onNewPrayer, stats }: H
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
-    <header className="glass sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60">
+    <header className="glass sticky top-0 z-50 shadow-sm dark:shadow-slate-900/50">
       <div className="mx-auto max-w-3xl px-4">
         {/* Top row */}
         <div className="flex items-center justify-between md:justify-end py-4">
